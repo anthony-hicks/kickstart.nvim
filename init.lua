@@ -545,6 +545,7 @@ end
 
 -- document existing key chains
 require('which-key').register {
+  ['<leader>b'] = { name = '[B]uild', _ = 'which_key_ignore' },
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
@@ -671,3 +672,17 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+vim.keymap.set("n", "<leader>bb", function()
+  local overseer = require("overseer")
+  overseer.run_template({name = "cmake build"}, function(task)
+    if task then
+      -- TODO: :cnext. May need to customize the 
+      -- on_output_quickfix component or add our own custom one,
+      -- because nothing seems to be working in here. I can't
+      -- find the docs for what "if task" means, either.
+    end
+  end)
+end, { desc = "[cmake] build" })
+vim.keymap.set("n", "<leader>bc", function()
+  require("overseer").run_template({name = "cmake clean"})
+end, { desc = "[cmake] clean" })
