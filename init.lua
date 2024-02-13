@@ -271,7 +271,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  { import = 'custom.plugins' },
+  { import = 'ahicks.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -672,7 +672,12 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-vim.keymap.set("n", "<leader>bb", function()
+
+vim.keymap.set("n", "<leader>tt", function()
+  require("overseer").toggle()
+end, { desc = "Toggle" })
+
+vim.keymap.set("n", "<leader>cc", function()
   local overseer = require("overseer")
   overseer.run_template({name = "cmake build"}, function(task)
     if task then
@@ -683,6 +688,7 @@ vim.keymap.set("n", "<leader>bb", function()
     end
   end)
 end, { desc = "[cmake] build" })
-vim.keymap.set("n", "<leader>bc", function()
+
+vim.keymap.set("n", "<leader>cl", function()
   require("overseer").run_template({name = "cmake clean"})
 end, { desc = "[cmake] clean" })
