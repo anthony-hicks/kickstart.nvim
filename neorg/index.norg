@@ -1,0 +1,28 @@
+* nvim
+
+** Code snippets
+Select some code, hit a hotkey, go to a note, paste the code, and get the code wrapped in code block with some metadata like:
+- filepath/filename
+- function
+
+** ( ) Quickly edit config
+- (x) shell alias
+- ( ) `:Config`
+
+** (x) Telescope preview width reduced for 'gr'
+I'd like to see more of the filepath.
+
+** C++ build workflow
+TODO details or separate page
+
+** Function overload signatures not just "4 overloads"
+
+** Parameter hints/types while typing function call
+
+** Parent dir in status line
+
+** std docs for word under cursor
+Most standard library implementations don't have great docs.
+
+** std man docs
+`:h std::vector`
