@@ -11,9 +11,10 @@ return {
         ["core.dirman"] = {
           config = {
             workspaces = {
-              notes = "~/notes",
+              nvim = "~/.config/nvim/neorg",
+              todo = "~/todo",
             },
-            default_workspace = "notes",
+            default_workspace = "todo",
           },
         },
       },
